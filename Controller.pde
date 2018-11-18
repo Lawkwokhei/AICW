@@ -23,6 +23,10 @@ class Controller{
     }
   }
 //<------------------------------------------------------------->
+  void setActions(float[] newActions){
+    action = newActions;
+  }
+//<------------------------------------------------------------->
   void useFunction(){
     if(action[step]<=20){
       turnLeft();
@@ -67,15 +71,15 @@ class Controller{
   void goForward(){
     player.accleration = head.headPosition();
     head.accleration = head.headPosition();
-    head.movePlayerHead();
-    player.movePlayer();
+    //head.movePlayerHead();
+    //player.movePlayer();
   }
 //<------------------------------------------------------------->
   void goBackward(){
     player.accleration = head.reverseHeadPosition();
     head.accleration = head.reverseHeadPosition();
-    head.movePlayerHead();
-    player.movePlayer();
+    //head.movePlayerHead();
+    //player.movePlayer();
   }
 //<------------------------------------------------------------->
   void calculateFitness(){

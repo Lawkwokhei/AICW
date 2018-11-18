@@ -6,7 +6,7 @@ void setup(){
   size(800,800);
   //gameWorld = new World();
   test = new GenerationGame(10);
-  //frameRate(60);
+  frameRate(60);
   
   //test1 = new Controller(new PVector(width/2,height/2));
   //test2 = new Controller(new PVector(width/4,height/4));

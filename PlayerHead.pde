@@ -3,12 +3,14 @@ class PlayerHead{
   float degree;
   float playerHead;
   PVector accleration;
+  PVector velocity;
   PVector headPosition;
   boolean bodyCollision;
 //<------------------------------------------------------------->  
   PlayerHead(PVector position,float head){
     playerHead = head;
     playerPosition = new PVector(position.x,position.y);
+    velocity = new PVector(0,0);
     accleration = new PVector(0,0);
     bodyCollision = false;
   }
@@ -32,8 +34,10 @@ class PlayerHead{
 //<------------------------------------------------------------->  
   void movePlayerHead(){
     if(!bodyCollision){
-    accleration.limit(2);
-    playerPosition.add(accleration);
+    accleration.limit(5);
+    velocity.limit(5);
+    velocity.add(accleration);
+    playerPosition.add(velocity);
     }
   }
 //<------------------------------------------------------------->

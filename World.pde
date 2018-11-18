@@ -46,10 +46,10 @@ class World{
 //<------------------------------------------------------------->
   void runGame(){
     this.showBoundaries();
-    this.checkPlayer1Condition();
-    this.checkPlayer2Condition();
-    this.checkPlayerOneCollision();
-    this.checkPlayerTwoCollision();
+    //this.checkPlayer1Condition();
+    //this.checkPlayer2Condition();
+    //this.checkPlayerOneCollision();
+    //this.checkPlayerTwoCollision();
     this.showPlayers();
   }
 //<------------------------------------------------------------->   
@@ -65,12 +65,20 @@ class World{
     player2.bullet.moveBullet();
     player1.useFunction();
     player2.useFunction();
+    this.checkPlayer1Condition();
+    this.checkPlayer2Condition();
+    this.checkPlayerOneCollision();
+    this.checkPlayerTwoCollision();
+    player1.player.movePlayer();
+    player1.head.movePlayerHead();
+    player2.player.movePlayer();
+    player2.head.movePlayerHead();
     //player1.keyReleased();
     //player2.keyReleased();
     }
     else{
-      player1.score = 5;
-      player2.score = 5;
+      player1.score = 25;
+      player2.score = 25;
       gameFinish = true;
     }
   }
@@ -89,7 +97,7 @@ class World{
   void checkPlayerOneCollision(){
     if(player1BulletZeroX|| player1BulletZeroY || player1BulletMaxX || player1BulletMaxY|| player1BulletHit){
       if(player1BulletHit){
-        player1.score = 500000/player1.step;
+        player1.score = 50000/player1.step;
         player2.score = player2.step/100;
       gameFinish = true;
       }
@@ -114,12 +122,12 @@ class World{
   void checkPlayerTwoCollision(){
     if(player2BulletZeroX|| player2BulletZeroY || player2BulletMaxX || player2BulletMaxY|| player2BulletHit){
       if(player2BulletHit){
-        player2.score = 500000/player2.step;
+        player2.score = 50000/player2.step;
         player1.score = player1.step/100;
         gameFinish = true;
       }
       player2.bullet.shot = true;
-      player2.bullet.setBullet(0,0);
+      //player2.bullet.setBullet(0,0);
     }
   }
 //<------------------------------------------------------------->
@@ -134,6 +142,6 @@ class World{
     player1.randomize();
     player2.randomize();
   }
-//<------------------------------------------------------------->  
+//<------------------------------------------------------------->
 
 }
